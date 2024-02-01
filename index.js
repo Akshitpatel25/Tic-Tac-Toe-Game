@@ -139,7 +139,7 @@ const checkwinner = () => {
                     o++;
                 }
             }else {
-                if ( box_count == 9) {
+                if ( box_count === 9) {
                     span.innerText = "";
                     document.querySelector(".win_msg").style.visibility = "visible";
                     document.querySelector(".winn").innerText = "Game is Tie";
