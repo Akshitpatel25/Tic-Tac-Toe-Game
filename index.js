@@ -129,7 +129,7 @@ const checkwinner = () => {
                 document.querySelector(".win_msg").style.visibility = "visible";
                 document.querySelector(".winn").innerText = `Congratulation, winner is ${pos1val}`;
                 disabledboxes();
-                
+                box_count = 0;
                 if (pos1val === "X") {
                     document.querySelector(".result_x").innerText = x;
                     x++;
