@@ -73,7 +73,7 @@ body {
 }
 .select_x {
     width: 50%;
-    border: 1px solid rgb(255, 255, 255);
+/*     border: 1px solid rgb(255, 255, 255); */
     height: 100%;
     border-radius: 10px;
     display: flex;
@@ -87,7 +87,7 @@ body {
 }
 .select_o {
     width: 50%;
-    border: 1px solid white;
+/*     border: 1px solid white; */
     /* border: none; */
     height: 100%;
     border-radius: 10px;
@@ -339,9 +339,11 @@ body {
         font-size: 50px;
     }
     .select_o {
+        padding-top: 10px;
         font-size: 30px;
     }
     .select_x {
+        padding-top: 10px;
         font-size: 30px;
     }
 
