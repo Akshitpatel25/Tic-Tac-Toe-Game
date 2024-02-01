@@ -1,4 +1,5 @@
-
+let buttonclicked1 = false; 
+let buttonclicked2 = false; 
 
 function select_x() {
     document.querySelector('.select_x').style.background = "#aabfc9";
@@ -34,9 +35,6 @@ let select_x_btn = document.querySelector('.select_x');
 let select_o_btn = document.querySelector('.select_o');
 
 
-let buttonclicked1 = false; 
-let buttonclicked2 = false; 
-
 let boxes = document.querySelectorAll(".box");
 // let reloadbox = document.querySelector(".reload_box");
 
@@ -71,10 +69,8 @@ const enabledboxes = () => {
 };
 
 
-let box_count = 0; 
-
-
-
+let bntcl1 = document.querySelector(".player");
+let bntcl2 = document.querySelector(".player2");
 
 function new_game() {
     // if MARK is not clicked by users then give alert message
@@ -83,6 +79,17 @@ function new_game() {
         select_o_btn.style.borderColor = "red";
         select_x_btn.style.borderColor = "red";
     }
+    
+    if (buttonclicked1 == true) {
+        bntcl1.innerText = "Playe-1";
+        bntcl2.style.display = "none";
+
+    }
+    if (buttonclicked2 == true) {
+        bntcl1.style.display = "none";
+        bntcl2.innerText = "Player-2";
+    }
+
     if (buttonclicked1 == true || buttonclicked2 == true) {
         // alert(" button");
 
@@ -97,11 +104,15 @@ function new_game() {
                     box.style.color = "#34c4bd";
                     box.innerText = "X";
                     span.innerText = "O -";
+                    bntcl1.innerText = "Player-2";
+                    bntcl2.innerText = "Player-1";
                     turnO = false;
                 } else {
                     box.style.color = "#ebb442";
                     box.innerText = "O";
                     span.innerText = "X -";
+                    bntcl1.innerText = "Player-1";
+                    bntcl2.innerText = "Player-2";
                     turnO = true;
                 }
                 box.disabled = true;
@@ -111,10 +122,12 @@ function new_game() {
         });
 
     }
+    
 }
 let x = 1;
 let o = 1;
 let t = 1;
+let box_count = 0; 
 // checking & showing winner
 const checkwinner = () => {
     for (let pattern of winnerpattern) {
@@ -126,9 +139,12 @@ const checkwinner = () => {
         if (pos1val != "" && pos2val != "" && pos3val != "") {
             if (pos1val === pos2val && pos2val === pos3val) {
                 span.innerText = "";
+                bntcl1.innerText = "";
+                bntcl2.innerText = "";
                 document.querySelector(".win_msg").style.visibility = "visible";
                 document.querySelector(".winn").innerText = `Congratulation, winner is ${pos1val}`;
                 disabledboxes();
+
                 box_count = 0;
                 if (pos1val === "X") {
                     document.querySelector(".result_x").innerText = x;
@@ -138,9 +154,12 @@ const checkwinner = () => {
                     document.querySelector(".result_o").innerText = o;
                     o++;
                 }
-            }else {
+            }
+            else {
                 if ( box_count == 9) {
                     span.innerText = "";
+                    bntcl1.innerText = "";
+                    bntcl2.innerText = "";
                     document.querySelector(".win_msg").style.visibility = "visible";
                     document.querySelector(".winn").innerText = "Game is Tie";
                     disabledboxes();
@@ -163,6 +182,9 @@ function continuee() {
     boxes.innerText = "";
     turnO = true;
     span.innerText = "x-";
+    bntcl1.innerText = "Player-1";
+    bntcl2.innerText = "Player-2";
+    buttonclicked1 = true;
 }
 
 function exitt() {
