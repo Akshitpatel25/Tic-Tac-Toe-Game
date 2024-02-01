@@ -83,6 +83,7 @@ body {
     color: #aabfc9;
     cursor: pointer;
     background-color:#1a2b33;
+    border: none;
 }
 .select_o {
     width: 50%;
@@ -97,6 +98,7 @@ body {
     color: #aabfc9;
     cursor: pointer;
     background-color:#1a2b33;
+    border: none;
 }
 
 .p2 {
